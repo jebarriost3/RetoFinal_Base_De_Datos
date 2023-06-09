@@ -1,0 +1,57 @@
+<!-- curso.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalles del Curso</title>
+</head>
+<body>
+  <h1>Detalles del Curso</h1>
+  <h2><%= curso.nombre %></h2>
+
+  <% if (profesor) { %>
+    <p>Profesor: <%= profesor.nombre %></p>
+  <% } else { %>
+    <p>Profesor: No asignado</p>
+  <% } %>
+
+  <h3>Estudiantes Inscritos:</h3>
+  <ul>
+    <% if (estudiantes && estudiantes.length > 0) {
+      estudiantes.forEach(function(estudiante) { %>
+        <li><%= estudiante.nombre %></li>
+    <% }) } else { %>
+        <li>No hay estudiantes inscritos.</li>
+    <% } %>
+  </ul>
+
+  <h3>Materiales:</h3>
+  <ul>
+    <% if (materiales && materiales.length > 0) {
+      materiales.forEach(function(material) { %>
+        <li><%= material.nombre %></li>
+    <% }) } else { %>
+        <li>No hay materiales disponibles.</li>
+    <% } %>
+  </ul>
+
+  <h3>Tareas:</h3>
+  <ul>
+    <% if (actividades && actividades.tareas && actividades.tareas.length > 0) {
+      actividades.tareas.forEach(function(tarea) { %>
+        <li><%= tarea.nombre %></li>
+    <% }) } else { %>
+        <li>No hay tareas asignadas.</li>
+    <% } %>
+  </ul>
+
+  <h3>Foros:</h3>
+  <ul>
+    <% if (actividades && actividades.foros && actividades.foros.length > 0) {
+      actividades.foros.forEach(function(foro) { %>
+        <li><%= foro.nombre %></li>
+    <% }) } else { %>
+        <li>No hay foros disponibles.</li>
+    <% } %>
+  </ul>
+</body>
+</html>

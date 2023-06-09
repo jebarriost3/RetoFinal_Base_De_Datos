@@ -1,0 +1,17 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Cursos</title>
+</head>
+<body>
+  <h1>Lista de Cursos</h1>
+  <ul>
+    <% cursos.forEach(function(curso) { %>
+      <li>
+        <a href="/cursos/<%= curso.id_curso %>"><%= curso.nombre %></a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
